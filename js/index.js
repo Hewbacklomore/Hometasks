@@ -1,15 +1,32 @@
 'use strict';
 
-// #TASK 1
+// #TASK 2
 
-// 1)  
+const askUserHours = +prompt('Write number of hours', ''); 
 
-Boolean(Number('10')) + 1 // 2 // Тут мы с начала строковую 10 переведем в число т.к стоит метод Number, потом 10 приводится к булиновому значению 10 будет true, а true принимает всегда в себя 1 и на выходе 1 + 1 = 2;
 
-'sub ' + Number(false) // sub 0 // Тут мы строку прибавляем к числу. false принимает занчени 0 строка + число будет sub 0;
 
-16  *  '    91    ' // 1456 // Тут идёт умножение по значению, даже если у нас строка в любом случае 16 будет умножаться на 91 так как в строке число;
+const oneHourInSeconds = 60;
 
-true - 70 //-69 // Тут у нас true принимает в себя 1 и мы отнимаем 70 = -69;
+let hours = 0;
 
-Number(1 + String(1)) + 1 // 12  // Тут мы с начала делаем действие в скобках. С начала будет 1 + "1" = "11". Потом у нас идёт метод Number который преобразует строку в число и потом просто к 11 добавит 1: 11 + 1 = 12;
+if(askUserHours === 'string' && askUserHours === 'undefined' && askUserHours === 'null') {
+    alert('Bro, c`mon write numbers!')
+}
+
+let arrHours = [askUserHours];
+for(let i = 0; i < arrHours.length; i++) {
+    hours = arrHours[i] * oneHourInSeconds;
+    alert(hours);
+}
+
+
+// Ну и второй метод через if либо можно было попробоавать switch, но больше всего мне понарвилось через массив;
+
+/* if(askUserHours == 2) {
+    hours = askUserHours * oneHourInSeconds
+    alert(hours)
+}else if(askUserHours == 3) {
+    hours = askUserHours * oneHourInSeconds
+}........  и так далее;
+ */
