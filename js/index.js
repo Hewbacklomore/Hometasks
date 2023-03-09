@@ -16,7 +16,7 @@ if(askUserHours === 'string' && askUserHours === 'undefined' && askUserHours ===
 
 let arrHours = [askUserHours];
 for(let i = 0; i < arrHours.length; i++) {
-    hours = arrHours[i] * oneHourInSeconds;
+    hours += arrHours[i] * oneHourInSeconds;
     alert(hours);
 }
 
@@ -28,5 +28,5 @@ for(let i = 0; i < arrHours.length; i++) {
     alert(hours)
 }else if(askUserHours == 3) {
     hours = askUserHours * oneHourInSeconds
-}........  и так далее;
+}........  и
  */
