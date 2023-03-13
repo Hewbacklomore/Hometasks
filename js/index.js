@@ -22,7 +22,7 @@ if(askUser === 'number' || askUser === undefined || askUser === null) {
 let numOrStr = prompt('input number or string');
 console.log(numOrStr)
 
-switch(true) {
+switch(numOrStr) {
         case numOrStr === null:
             console.log('вы отменили');
             break;
