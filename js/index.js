@@ -34,5 +34,5 @@ switch(true) {
             break;
         default:
             console.log('OK!');
-            break;
+            
 }
