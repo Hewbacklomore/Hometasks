@@ -88,7 +88,7 @@ let result = '';
                 break;
             case 4:
                 console.log(result += 'Autumn');
-                breakk
+                break;
             default:
-                console.log('There are no such numbers here')
+                console.log('There are no such numbers here');
     }
