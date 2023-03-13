@@ -1,28 +1,38 @@
 'use strict';
 
-// #TASK 4
+// #TASK 5
 
 
-const a = +prompt('Write first number', '');
-const b = +prompt('Write second number', '');
+// 1) Скомбинировать инструкции if;
 
-function equal (a, b) {
-    return a === b
+
+ const askUser = prompt('How r u?', '');
+
+if(askUser === 'number' || askUser === undefined || askUser === null) {
+    alert('Error')
+}else {
+    alert('Ok')
+} 
+
+
+
+
+// 2) Переписать код на switch .. case;
+
+let numOrStr = prompt('input number or string');
+console.log(numOrStr)
+
+switch(true) {
+        case numOrStr === null:
+            console.log('вы отменили');
+            break;
+        case numOrStr.trim() === '':
+            console.log('Empty String');
+            break;
+        case isNaN(+numOrStr):
+            console.log(' number is Ba_NaN');
+            break;
+        default:
+            console.log('OK!');
+            break;
 }
-
-console.log(equal(a, b));
-
-function sum (a, b) {
-    return a + b > 10
-}
-
-console.log(sum(a, b));
-
-
-const c = +prompt('Write thrid number', '');
-
-function negativeNumber (c) {
-    return c < 0
-}
-
-console.log(negativeNumber(c))
