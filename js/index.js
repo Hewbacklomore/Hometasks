@@ -8,7 +8,7 @@
 
  const askUser = prompt('How r u?', '');
 
-if(askUser === 'number' || askUser === undefined || askUser === null) {
+if(askUser === 'number' && askUser === undefined && askUser === null) {
     alert('Error')
 }else {
     alert('Ok')
