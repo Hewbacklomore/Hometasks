@@ -5,22 +5,22 @@
 
 // 1) Скомбинировать инструкции if;
 
+let numOrStr = prompt('input number or string');
+console.log(numOrStr)
 
- const askUser = prompt('How r u?', '');
 
-if(askUser === 'number' && askUser === undefined && askUser === null) {
+if(numOrStr === null || numOrStr.trim() === '' || !isNaN(+numOrStr)) {
     alert('Error')
 }else {
     alert('Ok')
-} 
+}  
 
 
 
 
 // 2) Переписать код на switch .. case;
 
-let numOrStr = prompt('input number or string');
-console.log(numOrStr)
+
 
 switch(numOrStr) {
         case numOrStr === null:
