@@ -21,9 +21,9 @@ const dateOfBirth = +prompt('Write down year of your birth', '');
 
 if(dateOfBirth !== null && dateOfBirth !== 0) {
    const currentCity = prompt('Which city do u live?', '');
-    if(currentCity !== null && currentCity !== '') {
+    if(currentCity !== null && currentCity !== '' && currentCity === 'string') {
         const favouriteSport = prompt('What is favorite kind of sport?' , '')
-        if(favouriteSport !== null && favouriteSport !== '') {
+        if(favouriteSport !== null && favouriteSport !== '' && favouriteSport === 'string') {
             alert(dateOfBirth)
             if(favouriteSport === 'football') {
                 alert('Thats cool! Wanna be like Ronaldo?')
