@@ -19,21 +19,31 @@
 const dateOfBirth = +prompt('Write down year of your birth', '');
 
 
-if (dateOfBirth !== null && dateOfBirth !== 0) {
+if(dateOfBirth !== null && dateOfBirth !== 0) {
+    const currentCity = prompt('Which city do u live?', '');
+    
+    if(currentCity !== null && currentCity !== '') {
+      const favouriteSport = prompt('What is favorite kind of sport?' , '')
+      if(favouriteSport !== null && favouriteSport !== '') {
+        
+        alert(`${dateOfBirth},  ${currentCity}, ${favouriteSport}`)
+      }else {
+        alert('Its a pitу that u didnt write your city')
+      }
+    }else {
+      alert('Its a pitу that u didnt write your city')
+    }
+}else {
+    alert('Its a pitу that u didnt write your date of birth')
+}
+
+
+/* if (dateOfBirth !== null && dateOfBirth !== 0) {
     const currentCity = prompt('Which city do u live?', '');
     if(currentCity !== null && currentCity !== '') {
         const favouriteSport = prompt('What is favorite kind of sport?' , '')
         if(favouriteSport !== null && favouriteSport !== '') {
             alert(`${dateOfBirth}, ${currentCity}, ${favouriteSport}`)
-            if(currentCity === 'Kyiv') {
-                alert(`Youre living in capital of Ukraine`)
-            }else if(currentCity === 'moskwa') {
-                alert('You are living in morder')
-            }else if(currentCity === 'Minsk') {
-                alert('You are living in Belarus')
-            }else {
-                alert(`You are living in ${currentCity}`)
-            } 
             if(favouriteSport === 'football') {
                 alert('Thats cool! Wanna be like Ronaldo?')
             }else if(favouriteSport === 'boxing') {
@@ -44,10 +54,31 @@ if (dateOfBirth !== null && dateOfBirth !== 0) {
         }else {
             alert('Its a pitу that u didnt write your favourite kind of sport')
         }
-    }else {
-        alert('Its a pitу that u didnt write your city')
-    }
+        if(currentCity === 'Kyiv') {
+          alert(`Youre living in capital of Ukraine`)
+        }else if(currentCity === 'moskwa') {
+          alert('You are living in morder')
+        }else if(currentCity === 'Minsk') {
+          alert('You are living in Belarus')
+        }else {
+          alert(`You are living in ${currentCity}`)
+        } 
+  
+    } else {
+      alert('Its a pitу that u didnt write your city')
+  }
 
 }else {
     alert('Its a pitу that u didnt write your date of birth')
 }
+ */
+
+/* if(currentCity === 'Kyiv') {
+  alert(`Youre living in capital of Ukraine`)
+}else if(currentCity === 'moskwa') {
+  alert('You are living in morder')
+}else if(currentCity === 'Minsk') {
+  alert('You are living in Belarus')
+}else {
+  alert(`You are living in ${currentCity}`)
+}  */
