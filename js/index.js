@@ -1,34 +1,18 @@
 'use strict';
 
-// #TASK 12
-/* 
-Нужно создать функцию которая будет возводить число в степень
-
-Запрашиваем у пользователя число (с помощью prompt)
-Запрашиваем у пользователя степень, в которую это число нужно возвести (с помощью prompt)
-Создаем функцию которая принимает 2 аргумента (число, степень)
-Задаем аргументу который принимает степень значение по умолчанию 1
-Внутри функции нужно написать проверку, если аргументы не являются числами завершить функцию с указанием того, что пользователь ввел неправильные данные, например (return ‘some error’)
- Если проверка прошла успешно, то возвести число в степень (работаем с аргументами функции)
-Вернуть результат выполнения функции и завершить ее
-Результат вызова функции записать в переменную и вывести пользователю через alert()
- */
+// #TASK 13
 
 
-
-const num = +prompt('Write frist number', '');
-const exponent = +prompt('Write second number', ''); 
-
-function mult(firstNum, secondNum = 1) { 
+function padString (string, num, sym, bool) {
   
-  if(isNaN(firstNum) && isNaN(secondNum)) {  // if(type of firstNum !== 'number && typeof secondNum !== 'number')
-    return 'some error'
-  }else { 
-    return Math.pow(firstNum, secondNum)
-  }
+      if(string === '' && typeof(string) !== 'string') {
+        return 'write string'
+      }else if(typeof(num) !== 'number' && num < 0) {
+        return 'write number or bigger than 0'
+      }else if(num < string.length) {
+        return string.substr(0, num)
+      }
+
 }
 
-let result = mult(num, exponent); 
-alert(result); 
-
-
+console.log(padString('hello', 2, '*'))
