@@ -20,7 +20,7 @@ const num = +prompt('Write frist number', '');
 const exponent = +prompt('Write second number', ''); 
 
 function mult(firstNum, secondNum = 1) { 
-  console.log(secondNum)
+  
   if(isNaN(firstNum) && isNaN(secondNum)) {  // if(type of firstNum !== 'number && typeof secondNum !== 'number')
     return 'some error'
   }else { 
