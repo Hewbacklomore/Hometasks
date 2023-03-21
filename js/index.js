@@ -21,7 +21,7 @@ const exponent = +prompt('Write second number', '');
 
 function mult(firstNum, secondNum = 1) { 
    
-  if(isNaN(firstNum) && isNaN(secondNum)) {  // if(type of firstNum !== 'number && typeof secondNum !== 'number')
+  if(isNaN(firstNum) || isNaN(secondNum)) {  // if(type of firstNum !== 'number || typeof secondNum !== 'number')
     return 'some error'
   }else { 
     return Math.pow(firstNum, secondNum)
