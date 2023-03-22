@@ -23,29 +23,8 @@
 
 function padString (string, num, sym, bool = false) {
 
-      if(string == '' || typeof(string) !== 'string') {
-        return 'write string'
-      }else if(isNaN(num) || num < 0) {
-        return 'write number or bigger than 0'
-      }else if(num < string.length) {
-        return string.substring(0, num)
-      }else if(num > string.length) {
-        
-        if(bool) {
-          if(num - string.length === 3) {
-            return `${string}${sym}${sym}${sym}`
-         }else if(num - string.length === 1) {
-          return `${sym}${string}`
-         } 
-        }else {
-          if(num - string.length === 1) {
-            return `${sym}${string}`
-         }else if(num - string.length === 3) {
-          return `${sym}${sym}${sym}${string}`
-         } 
-        }
-      }
-
+     if(typeof string !== string)  throw new Error('Write string')
+     if(typeof num !== 'number' || isNaN(num) ) throw new Error('Write a number')
 }
 
 console.log(padString('hello', 8, '*')) 
