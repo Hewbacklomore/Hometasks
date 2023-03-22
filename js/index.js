@@ -13,12 +13,10 @@ function createNewPositiveArr(item) {
 
     if(!Array.isArray(item)) return null;
     
-    
-         for(let i = 0; i < item.length; i++) {
-          if(item[i] <= 0) continue
-            let currentPositiveNumber = item[i];
-                exampleArr.push(currentPositiveNumber)
-           
+    for(let i = 0; i < item.length; i++) {
+      if(item[i] <= 0) continue
+          let currentPositiveNumber = item[i];
+          exampleArr.push(currentPositiveNumber)
         } 
   
     if(!exampleArr.length) {
