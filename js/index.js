@@ -33,7 +33,7 @@ const arr = [1, 2, 3, -1, -2, -3];
 
 function createNewPositiveArr(item) {
  
-    var exampleArr = [];
+    let exampleArr = [];
 
     if(!item.length) {
         return 'arr is empthy'
@@ -46,6 +46,10 @@ function createNewPositiveArr(item) {
                 exampleArr.push(currentPositiveNumber)
            }
         } 
+    }
+    
+    if(!exampleArr.length) {
+      return null
     }
     return exampleArr
 }
