@@ -1,14 +1,21 @@
 'use strict';
 
-// #TASK 13
+// #TASK 12
+
+const number = +prompt('Wtite first number', '');
+const secondNumber = +prompt('Write second number', '');
 
 
-function padString (string, num, sym, bool = false) {
+function numPow(num, degree = 1) {
 
-     if(typeof string !== string)  throw new Error('Write string')
-     if(typeof num !== 'number' || isNaN(num) ) throw new Error('Write a number')
+     if(num === null || degree === null) return 'some error'
+
+     if(isNaN(num) || isNaN(degree)) return 'some error'
+         
+
+     return Math.pow(num, degree)
+
 }
 
-console.log(padString('hello', 8, '*')) 
-console.log(padString('hello', 2)) 
-console.log(padString('hello', 6, '*', false)) 
+const result = numPow(number, secondNumber);
+console.log(result)
