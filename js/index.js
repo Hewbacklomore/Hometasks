@@ -1,26 +1,14 @@
 'use strict';
 
-// #TASK 12
+// #TASK 13
 
 
+function padString (string, num, sym, bool = false) {
 
-
-const num = +prompt('Write frist number', '');
-const exponent = +prompt('Write second number', ''); 
-
-function mult(firstNum, secondNum = 1) { 
-  
-if(num === null || exponent === exponent) return 'some error'
-
-   
-  if(isNaN(firstNum) || isNaN(secondNum)) {  
-    return 'some error'
-  } 
-    return Math.pow(firstNum, secondNum)
-  
+     if(typeof string !== string)  throw new Error('Write string')
+     if(typeof num !== 'number' || isNaN(num) ) throw new Error('Write a number')
 }
 
-let result = mult(num, exponent); 
-alert(result); 
-
-
+console.log(padString('hello', 8, '*')) 
+console.log(padString('hello', 2)) 
+console.log(padString('hello', 6, '*', false)) 
