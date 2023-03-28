@@ -1,46 +1,27 @@
 'use strict';
 
-// #Task 19
+// #Task 20
 
 
-function mainFunction(callback, mult, div, mod) { 
- 
-  const num1 = +prompt('Write first number', ''); 
-  const num2 = +prompt('Write second number', '');  
-  
-  
-  callback(num1, num2); 
-  mult(num1, num2); 
-  div(num1, num2);
-  mod(num1, num2);
-  
+
+function calculateAmountPotato () {
+    const litres = 48;
+    const potatoesPerLitr = 4;
+    const onePotato = 75;
+    const onePricePotato = 13;
+
+    const potatoesNeed = litres * potatoesPerLitr // сколько количество картошки необходимо на 48л борща;
+    const amountPotatoKg = Math.ceil((onePotato * potatoesNeed) / 1000) // узнаём кг картошки необходимое;
+
+    const amountPrice = amountPotatoKg * onePricePotato // мы узнаём сколько денег нам нужно в общеё сумме;
+
+    return amountPrice
+
 }
 
-const exponentiation = (a, b,) => { 
-
-  const result = Math.pow(a, b)
-  return alert(`The result of pow: ${result}`)
-}
-
-const multiplay = (a, b) => { 
-
-  const result = Math.round(a * b)
-  return alert(`The result of multiplay: ${result}`)
-}
-
-const divsion = (a, b) => { 
-
-  const result = Math.round(a / b); 
-  return alert(`The result of division: ${result}`)
-}
-
-const modullo = (a, b) => { 
-
-  const result = Math.round(a % b)
-  return alert(`The result modullo: ${result}`)
-}
+console.log(calculateAmountPotato());
 
 
 
-mainFunction(exponentiation, multiplay, divsion, modullo);  
+
 
