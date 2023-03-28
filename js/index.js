@@ -1,25 +1,30 @@
 'use strict';
 
-// #Task 20
+// #Task 21
 
 
+function simpleNumber () {
+  const num = +prompt('Write your number', '');
 
-function calculateAmountPotato () {
-    const litres = 48;
-    const potatoesPerLitr = 4;
-    const onePotato = 75;
-    const onePricePotato = 13;
+  if(num < 1) {
+      return false
+ }
 
-    const potatoesNeed = litres * potatoesPerLitr // сколько количество картошки необходимо на 48л борща;
-    const amountPotatoKg = Math.ceil((onePotato * potatoesNeed) / 1000) // узнаём кг картошки необходимое;
-
-    const amountPrice = amountPotatoKg * onePricePotato // мы узнаём сколько денег нам нужно в общеё сумме;
-
-    return amountPrice
-
+  for(let i = 2; i < num; i++) {
+    if(num % i === 0) {
+        return false
+    }
+  }
+    return true
 }
 
-console.log(calculateAmountPotato());
+
+
+console.log(simpleNumber());
+
+
+
+
 
 
 
