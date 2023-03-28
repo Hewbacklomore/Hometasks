@@ -1,0 +1,19 @@
+{
+  "name": "hometasks",
+  "version": "1.0.0",
+  "description": "all my hometasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Hewbacklomore/Hometasks.git"
+  },
+  "author": "Artur Peiev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hewbacklomore/Hometasks/issues"
+  },
+  "homepage": "https://github.com/Hewbacklomore/Hometasks#readme"
+}
