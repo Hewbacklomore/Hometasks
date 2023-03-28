@@ -3,7 +3,7 @@
 // #Task 19
 
 
-function mainFunction(callback, mult, div) { 
+function mainFunction(callback, mult, div, mod) { 
  
   const num1 = +prompt('Write first number', ''); 
   const num2 = +prompt('Write second number', '');  
@@ -12,7 +12,7 @@ function mainFunction(callback, mult, div) {
   callback(num1, num2); 
   mult(num1, num2); 
   div(num1, num2);
-  modullo(num1, num2);
+  mod(num1, num2);
   
 }
 
