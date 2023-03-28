@@ -1,30 +1,21 @@
 'use strict';
 
-// #Task 21
+// #Task 22
 
 
-function simpleNumber () {
+function findSmallNumDivision () {
   const num = +prompt('Write your number', '');
 
-  if(num < 1) {
-      return false
- }
+  if(num < 1 || isNaN(num)) throw new Error('write bigger number than 1');
 
   for(let i = 2; i < num; i++) {
-    if(num % i === 0) {
-        return false
-    }
+    if(num % i === 0) return i
   }
-    return true
+  
 }
 
 
-
-console.log(simpleNumber());
-
-
-
-
+console.log(findSmallNumDivision());
 
 
 
