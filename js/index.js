@@ -18,7 +18,6 @@ function mainFunction(callback, mult, div) {
 
 const exponentiation = (a, b,) => { 
 
-
   const result = Math.pow(a, b)
   return alert(`The result of pow: ${result}`)
 }
