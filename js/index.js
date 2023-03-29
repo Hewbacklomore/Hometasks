@@ -8,9 +8,12 @@ const secondNumber = +prompt('Write second number', '');
 
 function numPow(num, degree = 1) {
 
-     if(num === null || degree === null) return 'some error'
 
-     if(isNaN(num) || isNaN(degree)) return 'some error'
+     if(typeof num !== 'number' || typeof degree !== 'number') throw new Error('write a number')
+
+     if(num === 0 || degree === 0) throw new Error('write a number not null')
+
+     if(isNaN(num) || isNaN(degree)) throw new Error('write a number')
          
 
      return Math.pow(num, degree)
