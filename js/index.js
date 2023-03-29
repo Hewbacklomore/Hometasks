@@ -1,23 +1,36 @@
 'use strict';
 
-// #Task 22
+// #Task 23
+/* 
+function fib(num = 1) { debugger
 
-
-function findSmallNumDivision () {
-  const num = +prompt('Write your number', '');
-
-  if(num < 1 || isNaN(num)) throw new Error('write bigger number than 1');
-
-  for(let i = 2; i < num; i++) {
-    if(num % i === 0) return i
+  function changeNum() { debugger
+      num += num; debugger
+      return num; 
   }
-  
+
+  return changeNum; 
+
 }
 
+const result = fib(); debugger
+const adder = result(); debugger
+console.log(adder); debugger
+ */
+/* let result = 0;
+for(let i = 0; i < 10; i++) {
+    result += i
+    if(i === 2) break
+    console.log(result)
 
-console.log(findSmallNumDivision());
+} */
 
-
-
+let result = 0; debugger
+for(let i = 0; i < 10; i++) { debugger
+   for(let j = 0; j < 2; j++ ) { debugger
+      result += j + i; debugger
+      console.log(result); debugger
+   }
+}
 
 
