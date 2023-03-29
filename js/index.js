@@ -4,33 +4,53 @@
 /* 
 function fib(num = 1) { debugger
 
-  function changeNum() { debugger
-      num += num; debugger
-      return num; 
+  
+  let lastResult = ''; debugger
+
+  for(let i = 0; i < 10; i++) { debugger
+      lastResult += `${i} `; debugger
+      if(i === 2) break; debugger
+      console.log(lastResult); debugger
+    
   }
-
-  return changeNum; 
+  
+  
 
 }
 
-const result = fib(); debugger
-const adder = result(); debugger
-console.log(adder); debugger
- */
-/* let result = 0;
-for(let i = 0; i < 10; i++) {
-    result += i
-    if(i === 2) break
-    console.log(result)
+const result = fib(); 
+console.log(result); */
+/* 
+ 
+ function fib() {
 
-} */
+  let string = ''
+  let prev = 0;
+  for(let i = 0; i <= 2; i++) {
+    prev += i
+    if(i === 2) break;
+    console.log(prev);
+    for(let j = 1; j < 2; j++) {
+      prev += j
+      console.log(prev)
+    }  
+  } 
+  let next = prev;
+  string += `${next}`
+  console.log(string);
 
-let result = 0; debugger
-for(let i = 0; i < 10; i++) { debugger
-   for(let j = 0; j < 2; j++ ) { debugger
-      result += j + i; debugger
-      console.log(result); debugger
-   }
-}
+ }
 
+ console.log(fib()); */
 
+              function fib(num = 1) {
+                      let result = 0;
+                      let next = 0;
+
+                      for(let i = 0; i < 10; i++) {
+                        let result = num += i
+                        return result
+                      }
+              }
+
+              console.log(fib()); 
