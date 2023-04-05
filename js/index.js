@@ -1,133 +1,149 @@
 'use strict';
 
-// #Task 24
+// #Task 25
 
-// 1) 
+// 1)
 
-const arr = [1, 2, 3];
-const arr1 = [4, 5, 6];
 
-const newArr = arr.concat(arr1); // or spread operator [...arr, ...arr1];
 
-// 2)
+const arr = ['a', 'b', 'c', 'd'];
 
-const arr2 = [1, 2, 3];
-const newArr2 = arr2.reverse();
+const firstPare = arr.slice(0, 2).join('+').split(',');
+const secondPare = arr.slice(2, 4).join('+').split(',');
 
-// 3)
+const togetherArr = firstPare.concat(secondPare)
+const result = togetherArr.join(',')
 
-const arr3 = [1, 2, 3];
-const newArr3 = arr3.push(4, 5, 6);
+alert(result);
+
+// 2) 
+
+const arr1 = [ 2, 5, 3, 9];
+
+const firstPare1 = arr1.slice(0, 2);
+const secondPare1 = arr1.slice(2, 4);
+const resultFirstPare = firstPare1.reduce((total, item) => total * item);
+const resultSecondPare = secondPare1.reduce((accum, num) => accum * num);
+const result1 = resultFirstPare + resultSecondPare;
+
+alert(result1);
+
+// 3) 
+
+const arr2 = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ] // or just console.log(arr2[1][0]);
+
+for(let i = 0; i < arr2.length; i++) {
+    for(let k = 0; k < arr2[i].length; k++) {
+      if(arr2[i][k] === 4) {
+             alert(arr2[i][k]);
+      } 
+    }
+}
 
 // 4)
 
-const arr4 = [1, 2, 3];
-const newArr4 = arr4.unshift(4, 5, 6);
+const obj = {                        // or just console.log(obj.js[0]);
+    js: ['jQuery', 'Angular'],
+    php: 'hello',
+    css: 'world'
+}
 
-// 5)
-
-const arr5 = ['js', 'css', 'jq'];                         
-const showFirstEl = arr5.slice(0, 1)
-alert(showFirstEl);
-
-/* 
-for(let i = 0; i < arr5.length; i++) {
-  if(i == 0) {
-    alert(arr5[i])
+for(let key in obj) {
+  for(let item in obj[key]) {
+    if(obj[key][item] === 'jQuery') {
+      alert(obj[key][item]);
+    }
   }
-} */
+}
 
-// 6) 
+// 5) 
 
-const arr6 = ['js', 'css', 'jq'];                         
-const showLastEl = arr6.slice(2, 3)
-alert(showLastEl); 
+const arr5 = new Array();
 
-// 7)
+for(let i = 1; i <= 6; i++) {
+  arr5.push('x'.repeat(i))
+}
+alert(arr5);
 
-const arr7 = [1, 2, 3, 4, 5];
-const newArr7 = arr7.slice(0, 3);
-console.log((newArr7));
+// 6)
 
+const arr6 = new Array();
+for(let i = 1; i <= 6; i++) {
+ arr6.push(String(i).repeat(i))
+}
+
+alert((arr6));
+
+//7 
+
+const item7 = 'x';
+const quantityElem = 1;
+
+
+function arrayFill(elem, num) {
+  const arr7 = new Array();
+
+  if(num === 0 || typeof num !== 'number')  throw new Error ('write a number bigger than 0')
+
+  for(let i = 1; i <= num; i++) {
+    const result = arr7.push(elem)
+    
+  }
+  return arr7
+ 
+}
+
+alert(arrayFill(item7, quantityElem));
 
 // 8)
 
-const arr8 = [1, 2, 3, 4, 5];
-const newArr8 = arr8.slice(3, 6)
-console.log(newArr8);
+const arr8 = [1, 2, 3, 4, 5, 6];
 
-// 9)
+let sum = 0;
+let count = 0;
 
-const arr9 = [1, 2, 3, 4, 5];
-const deleteElem = arr9.splice(1, 2);
-console.log(arr9);
+for(let i = 0; i < arr8.length; i++) {
+  sum += arr8[i];
+  count++;
+  if(sum > 10) break;
+}
+alert(count);
 
-// 10) 
 
-const arr10 = [1, 2, 3, 4, 5];
-const newArr10 = arr10.splice(1, 3);
-console.log((newArr10));
+
+// 9
+
+const arr9 = [1, 2, 3, 4, 5, 6];
+
+const changeLastThreeEl = arr9.splice(0, 3, 6, 5, 4);
+const changeFirstTreeEl = arr9.splice(3, 6, 3, 2, 1)
+alert(arr9);
+
+// 10)
+
+const arr10 =  [[1, 2, 3], [4, 5], [6]];
+
+let result10 = 0;
+
+for(let key in arr10) {
+ for(let item in arr10[key]) {
+    result10 += arr10[key][item]
+ }
+  
+}
+alert(result10);
+
 
 // 11)
 
-const arr11 = [1, 2, 3, 4, 5];
-arr11.splice(3, 0, 'a', 'b', 'c')
-console.log(arr11);
+const arr11 =  [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
+let result11 = 0;
 
-// 12)
+for(let key in arr11) {
+  for(let item in arr11[key]) {
+    for(let elem in arr11[key][item])
+    result11 += arr11[key][item][elem];
+  }
+}
 
-const arr12 = [1, 2, 3, 4, 5];   // [1, 'a', 'b', 2, 3, 4, 'c', 5, 'e'].
-const addTwoElements = arr12.splice(1, 0, 'a', 'b');
-const addOneElement = arr12.splice(6, 0, 'c')
-const addLastElement = arr12.push('e');
-console.log(arr12);
-
-// 13)
-
-const arr13 = [3, 4, 1, 2, 7];
-const sortedArr = arr13.sort();
-
-// 14)
-
-const arr14 = [5, 6, 7, 8, 9];
-const result = arr14.reduce((total, sum) => total + sum);
-
-
-// 15) 
-
-const arr15 = [5, 6, 7, 8, 9];
-const result1 = arr15.map((item) => item ** 2)
-
-console.log(result1);
-
-// 16) 
-
-const arr16 =  [1, -3, 5, 6, -7, 8, 9, -11];
-const newArrNegative = arr16.filter((num) => num < 0)
-console.log(newArrNegative)
-
-// 17) 
-
-const arr17 = [1, -3, 5, 6, -7, 8, 9, -11];
-const evenNumbers = arr17.filter((item) => item % 2 == 0)
-console.log(evenNumbers);
-
-// 18)
-
-const arr18 = ['aaa', 'aaaqqq', 'zzzqq', 'zz', 'qsaa', 'q', 'az'];
-const neweArr18 = arr18.filter((item) => item.length > 5);
-console.log(neweArr18);
-
-// 19)
- 
-const arr19 = [1, 2, [3, 4], 5, [6, 7]];
-const newArr19 =  arr19.filter((arr) => Array.isArray(arr));
-console.log(newArr19);
-
-
-// 20)
-
-const arr20 = [5, -3, 6, -5, 0, 7, 8, 9];
-const newArr20 = arr20.filter((num) => num < 0);
-const count = newArr20.length;
-console.log(count);
+alert(result11);
