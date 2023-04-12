@@ -1,214 +1,84 @@
 'use strict';
 
-// #Task 27
+// #Task 28
 
-// 1)
-const arr = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4, 47];
-
-const result = arr.reduce((accum, item) => {
- 
-  if(item > 0) {
-      accum.count++;
-      accum.sum += item
+let users = [
+  {
+    index: 0,
+    isActive: true,
+    balance: "$2,226.60",
+    name: "Eugenia Sawyer",
+    gender: "female",
+    phone: "+1 (840) 583-3207",
+    address: "949 John Street, Rose, Puerto Rico, 1857"
+  },
+  {
+    index: 1,
+    isActive: true,
+    balance: "$2,613.77",
+    name: "Pauline Gallegos",
+    gender: "female",
+    phone: "+1 (985) 593-3328",
+    address: "328 Greenpoint Avenue, Torboy, North Dakota, 6857"
+  },
+  {
+    index : 2,
+    isActive: false,
+    balance: "$3,976.41",
+    name: "Middleton Chaney",
+    gender: "male",
+    phone: "+1 (995) 591-2478",
+    address: "807 Fleet Walk, Brutus, Arkansas, 9783"
+  },
+  {
+    index: 3,
+    isActive: true,
+    balance: "$1,934.58",
+    name: "Burns Poole",
+    gender: "male",
+    phone: "+1 (885) 559-3422",
+    address: "730 Seba Avenue, Osage, Alabama, 6290"
+  },
+  {
+    index: 4,
+    isActive: true,
+    balance: "$3,261.65",
+    name: "Mcfadden Horne",
+    gender: "male",
+    phone: "+1 (942) 565-3988",
+    address: "120 Scholes Street, Kirk, Michigan, 1018"
+  },
+  {
+    index: 5,
+    isActive: false,
+    balance: "$1,790.56",
+    name: "Suzette Lewis",
+    gender: "female",
+    phone: "+1 (837) 586-3283",
+    address : "314 Dunne Place, Bawcomville, Guam, 9053"
   }
- 
-  return accum
+  ]
 
-}, {count : 0, sum : 0})
+const phoneNumbers = users.reduce((accum, item) => {
 
+  const changetoNum = Number(item.balance.replace('$', '').replace(',', ''));
 
-console.log(`Quantity positive numbers: ${result.count}`);
-console.log(`Sum of this numbers: ${result.sum}`);
-
-// либо второй вариант просто через цикл for
-
-
-let positiveNum = 0;
-let sum = 0;
-
-
-for(let i = 0; i < arr.length; i++) {
-    if(arr[i] > 0) {
-      positiveNum++;
-      sum += arr[i]
-    }
-
-   /*  sum += arr[i] */ // Не до конца понял нужно суммировать только позитивные числа или все, поэтому решил закоментить вариант со всеми числами
-}
-
-console.log(`Quantity positive numbers: ${positiveNum}`);
-console.log(`Sum of this numbers: ${sum}`);
-
-// 2)
-
-const arr1 = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4, 47];
-
-
-const min = Math.min(...arr1);
-const indexOfMinElem = arr1.indexOf(min);
-
-console.log(min);
-console.log(indexOfMinElem);
-// 3)
-
-
-const arr2 = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4, 47];
-
-const max = Math.max(...arr2);
-const indexOfMaxElem = arr2.indexOf(max);
-
-console.log(max);
-console.log(indexOfMaxElem);
-// 4)
-
-const arr3 = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4, 47];
-
-const result3 = arr3.reduce((accum, item) => {
-
-  if(item < 0) {
-    accum.count++
-  }
-  return accum
-}, {count: 0})
-
-console.log(`Quantity negative numbers: ${result3.count}`);
-
-// или через цикл for
-
-let negativeNumbers = 0;
-
-for(let i = 0; i < arr3.length; i++) {
-    if(arr3[i] < 0) {
-      negativeNumbers++
-    } 
-}
-console.log(negativeNumbers);
-
-// 5)
-
-const arr4 = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4, 47];
-
-const result4 = arr4.reduce((accum, item) => {
-
-    if(item % 2 !== 0) {
-      if(item > 0) {
-          accum.notPairedPositive++;
-      }
-    }
-
-    return accum
-
-}, {notPairedPositive: 0})
-
-console.log(result4.notPairedPositive); 
-
-// точно так же второй вариант через цикл
-
-let negativeNotPairedNumbers = 0;
-
-for(let i = 0; i < arr4.length; i++) {
-  if(arr4[i] % 2 !== 0) {
-      if(arr4[i] > 0) {
-        negativeNotPairedNumbers++;
-      }
-  }
-}
-console.log(negativeNotPairedNumbers);
-
-// 6) 
-
-
-const arr5 = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4, 47];
-
-const result5 = arr5.reduce((accum, item) => {
-
-  if(item % 2 == 0) {
-    if(item > 0) {
-      accum.pairedPositiveNumbers++;
-    }
+  if(changetoNum > 2000) {
+    accum.push(item.phone)
   }
   return accum
 
-}, {pairedPositiveNumbers: 0});
+},[])
 
-console.log(result5.pairedPositiveNumbers);
-
-// 7) 
+console.log(phoneNumbers); 
 
 
-const arr6 = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4, 47];
+const totalSum = users.reduce((accum, user) => {
 
-const result6 = arr6.reduce((accum, item) => {
-
-    if(item % 2 == 0) {
-      if(item > 0) {
-          accum.sumPaired += item
-      }
-    }
-    return accum
-}, {sumPaired: 0});
-
-console.log(`Sum of paired positive numbers: ${result6.sumPaired}`);
-
-// так же через цикл for
-
-let sum1 = 0;
-
-for(let i = 0; i < arr6.length; i++) {
-    if(arr6[i] % 2 == 0) {
-      if(arr6[i] > 0) {
-        sum1 += arr6[i]
-      }
-    }
-}
-
-console.log(`Sum of paired positive numbers: ${sum1}`);
-
-// 8) 
+  const changetoNum = Number(user.balance.replace('$', '').replace(',', ''));
 
 
-const arr7 = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4, 47];
+  return Math.ceil(accum + changetoNum)
+},0)
 
-
- const result8 = arr7.reduce((accum, item) => {
-      if(item % 2 !== 0) {
-        if(item > 0) {
-          accum.sumOfNotPairedPositiveNum += item
-          
-        }
-      }
-      return accum
-}, {sumOfNotPairedPositiveNum: 0})
-
-console.log(`Sum of not paired positive numbers: ${result8.sumOfNotPairedPositiveNum}`);
-
-// 9) 
-
-const arr8 = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54, 76, -4, 12, -35, 4, 47];
-
-const result1 = arr8.reduce((accum, item) => {
-      if(item > 0) {
-        accum *= item
-      }
-    return Math.ceil(accum)
-})
-
-console.log(result1);
-
-
-// 10) 
-
-const arr9 = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, 63, 4, -54, 76, -4, 12, -35, 4, 47];
-
-const maxElem = Math.max(...arr9);
-
-const result10 = arr9.map((item) => {
- 
-  if(item !== maxElem) {
-      item = 0;
-  } 
-  return item
-    
-})
-
-console.log(result10);
+console.log(totalSum); 
