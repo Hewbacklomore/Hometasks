@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Hewbacklomore/Hometasks/issues"
   },
-  "homepage": "https://github.com/Hewbacklomore/Hometasks#readme"
+  "homepage": "https://github.com/Hewbacklomore/Hometasks#readme",
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "prettier": "^2.8.7"
+  }
 }
