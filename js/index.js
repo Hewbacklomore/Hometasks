@@ -15,8 +15,8 @@
     }
 
     const sum = counter();
-    console.log(sum(3));
-    console.log(sum(5));
-    console.log(sum(20));
+    sum(3);
+    sum(5);
+    sum(20);
 
 } ())
