@@ -1,38 +1,22 @@
 'use strict';
 
-// #Task 30
+// #Task 31
 
 
-function anotherSum (num) {
+(function () {
 
-    function plusSum () {
-        num = num + num
-        return num
+    function counter (num = 0) {
+
+        function changeCounter (x) {
+            num += x
+            return num
+        }
+            return changeCounter
     }
 
-    return plusSum 
-}
+    const sum = counter();
+    console.log(sum(3));
+    console.log(sum(5));
+    console.log(sum(20));
 
-
-const sum = anotherSum(3);
-console.log(sum)
-
-
- console.log(sum(3))
- console.log(sum(5))
-console.log(sum(20))
-
-
-
-function counter (num = 1) {
-
-    function increase () {
-        num = num + 1;
-        return num
-    }
-
-    return increase
-}
-
-const countIncrease = counter(10);
-console.log(countIncrease);
+} ())
