@@ -12,7 +12,7 @@ const calculator = {
       this.a = +prompt('Write your first number', '');
       this.b = +prompt('Write your second number', '');
 
-      if(isNaN(this.a) || this.a === false || isNaN(this.b) || this.b === false) return 'error' 
+      if(isNaN(this.a) || this.a === 0 || isNaN(this.b) || this.b === 0) return 'error' 
 
       return this
        
