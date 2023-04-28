@@ -9,7 +9,6 @@ const ulElement = document.getElementById('ulId'),
 
 
 
-
 //1)
       for(let key of listOfElem) {
         console.log(key);
@@ -29,7 +28,6 @@ const ulElement = document.getElementById('ulId'),
       } 
       console.log(arr);
 
-      
 });
 
 
