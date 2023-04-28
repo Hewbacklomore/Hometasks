@@ -1,32 +1,23 @@
 'use strict';
 
-// #Task 35
-/* 
-function getFactorial(num) {
-  
-  function factorial() {
-      if(num) num * ()
-  }
+// #Task 37
 
-   
-    
-};
 
-console.log(getFactorial(3));
- */
-
-function factorial(n) { debugger
-  if (typeof(n) !== 'number' || !Number.isInteger(n)) { debugger
-      return "Ошибка, проверьте данные"; debugger
-  }
-
-  if (n >= 1) { debugger
-      return n * factorial(n - 1); debugger
-  } else { debugger
-      return 1; debugger
-  }
-
+const obj = {
+  name: 'Alex',
+  surname: 'Horny'
 }
 
-console.log(factorial(5)); debugger
+function showInfo(age, hair) {
+  return `The name of the person:${this.name}, his surname is ${this.surname} and his age: ${age}, and his hair is ${hair}`
+}
+
+function myBund(myFun, context, ...rest) {
+  return function() {
+      return myFun.apply(context, rest)
+  }
+}
+
+const result = myBund(showInfo, obj, 36, 'black');
+console.log(result());
 
