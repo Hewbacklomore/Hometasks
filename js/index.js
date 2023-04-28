@@ -1,56 +1,25 @@
 'use strict';
 
 // #Task 23
-/* 
-function fib(num = 1) { debugger
 
-  
-  let lastResult = ''; debugger
+(function() {
 
-  for(let i = 0; i < 10; i++) { debugger
-      lastResult += `${i} `; debugger
-      if(i === 2) break; debugger
-      console.log(lastResult); debugger
-    
-  }
-  
-  
 
-}
+ function fib(num = 1) { 
 
-const result = fib(); 
-console.log(result); */
-/* 
- 
- function fib() {
-
-  let string = ''
-  let prev = 0;
-  for(let i = 0; i <= 2; i++) {
-    prev += i
-    if(i === 2) break;
-    console.log(prev);
-    for(let j = 1; j < 2; j++) {
-      prev += j
-      console.log(prev)
-    }  
-  } 
-  let next = prev;
-  string += `${next}`
-  console.log(string);
-
+    function numbersFib(a) { 
+      return num += a
+    }
+      return numbersFib
  }
 
- console.log(fib()); */
+ const result = fib(); 
+ console.log(result(0)); //1 
+ console.log(result(0)); //1
+ console.log(result(1)); //2
+ console.log(result(1)); //3
+ console.log(result(2)); //5
+ console.log(result(3)); //8
+ console.log(result(5)); //13
 
-              function fib(num = 1) {
-                      let result = 0;
-                      let next = 0;
-
-                      for(let i = 0; i < 10; i++) {
-                        let result = num += i
-                        return result
-                      }
-              }
-
-              console.log(fib()); 
+}());
