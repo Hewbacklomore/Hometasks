@@ -2,6 +2,7 @@
 
 // #Task 37
 
+(function() {
 
 const obj = {
   name: 'Alex',
@@ -21,3 +22,4 @@ function myBund(myFun, context, ...rest) {
 const result = myBund(showInfo, obj, 36, 'black');
 console.log(result());
 
+}());
