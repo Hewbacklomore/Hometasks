@@ -23,6 +23,7 @@ const mainTable = document.querySelector('.tableMain'),
           mainTable.appendChild(row)
         }
     } 
+    
   createTable()
 })
 
