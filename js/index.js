@@ -1,22 +1,28 @@
 'use strict';
 
-// #Task 39
+// #Task 40
 
-function generateList(array) {
-  let ulMenu = '<ul>';
+const mainTable = document.querySelector('.tableMain'),
+      btn = document.querySelector('.btn');
+      
 
-  for (let i = 0; i < array.length; i++) {
-    if (Array.isArray(array[i])) {
-      ulMenu += '<li>' + generateList(array[i]) + '</li>';
-    } else {
-      ulMenu += '<li>' + array[i] + '</li>';
-    }
-  }
+    btn.addEventListener('click', function() {
 
-  ulMenu += '</ul>';
-  return ulMenu;
-}
+     function createTable() {
+      
+          let number = 0;
 
+          for(let i = 0; i < 10; i++) {
+            let row = document.createElement('tr');
+            for(let j = 0; j < 10; j++) {
+              let colums = document.createElement('td');
+              number++;
+              colums.append(document.createTextNode(number));
+              row.append(colums);
+            }
+          mainTable.appendChild(row)
+        }
+    } 
+  createTable()
+})
 
-const generList = generateList([1, 2, [1.1, 1.2, 1.3], 3]);
-document.write(generList);
