@@ -2,22 +2,39 @@
 
 window.addEventListener('DOMContentLoaded', function() {
 
-    function generateList(array) {
+    const form = document.querySelector('form'),
+          inputEmail = form.querySelector('input[type="email"]'),
+          inputFirstName = form.querySelector('input[type="text"]'),
+          inputLastName = form.querySelector('#lastName'),
+          inputNickName = form.querySelector('#nickName'),
+          inputPassword = form.querySelector('input[type="password"]'),
+          textAreaCom = form.querySelector('textarea[placeholder="Leave a comment here"]'),
+          chekBox = form.querySelector('input[type="checkbox"]'); 
 
-        const ulMenu = document.createElement('ul');
 
-        for (let i = 0; i < array.length; i++) {
-          const li = document.createElement('li');
-          if (Array.isArray(array[i])) {
-            li.appendChild(generateList(array[i]));
-          } else {
-            li.textContent = array[i];
-          }
-          ulMenu.appendChild(li);
+
+        
+
+ 
+form.addEventListener('submit', (e)  => {
+
+    e.preventDefault();
+
+    let obj = {};
+
+     if(!inputEmail.value || !chekBox.checked || !inputFirstName.value || !inputLastName.value || !inputNickName.value || !inputPassword.value ) {
+        console.log('submit fields according the rules');
+    }else {
+        obj = {
+            email: inputEmail.value,
+            firstname: inputFirstName.value,
+            lastname: inputLastName.value,
+            nickname: inputNickName.value,
+            password: inputPassword.value,
+            comment: textAreaCom.value
         }
-        return ulMenu;
-      }
-      const myArray = [1, 2, [1.1, 1.2, 1.3], 3];
-      const myUlMenu = generateList(myArray);
-      document.body.appendChild(myUlMenu);
-})
+    } 
+        console.log(obj);
+}) 
+
+});
