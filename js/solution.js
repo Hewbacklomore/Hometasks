@@ -2,39 +2,22 @@
 
 window.addEventListener('DOMContentLoaded', function() {
 
+    function generateList(array) {
 
-const ulMenu = document.querySelector('.ulClass'),
-      liElements = ulMenu.querySelectorAll('li');
+        const ulMenu = document.createElement('ul');
 
-
-// 1 каждый елемент в консоль 
-
-for(let item of liElements) {
-    console.log(item);
-}
-
-
-// 2 Вытянуть атрбуты имя и значения ....
-
-
-let arrOfValue = [];
-let arrOfName = [];
-
-console.log(ulMenu.attributes);
-
-for(let key of ulMenu.attributes) {
-   arrOfValue.push(key.value)
-   arrOfName.push(key.name)
-}
-console.log(arrOfValue);
-console.log(arrOfName);
-
-// 3 Изменить текст в последнем... удалить атрибут ...
-
-    ulMenu.lastElementChild.textContent = 'Hello, my name is Arthur';
-
-    ulMenu.firstElementChild.setAttribute('data-my-name', 'Arthur');
-
-    ulMenu.removeAttribute('data-dog-tail')
-
+        for (let i = 0; i < array.length; i++) {
+          const li = document.createElement('li');
+          if (Array.isArray(array[i])) {
+            li.appendChild(generateList(array[i]));
+          } else {
+            li.textContent = array[i];
+          }
+          ulMenu.appendChild(li);
+        }
+        return ulMenu;
+      }
+      const myArray = [1, 2, [1.1, 1.2, 1.3], 3];
+      const myUlMenu = generateList(myArray);
+      document.body.appendChild(myUlMenu);
 })
