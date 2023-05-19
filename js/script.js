@@ -21,12 +21,11 @@
          
          
         localStorage.setItem('formData', JSON.stringify(data));
-        
+
         setTimeout(()=> {
             form.style.display = 'none';
         }, 2000)
        
-        
         linkSecondIndex.removeAttribute('style');
         linkSecondIndex.setAttribute('style', 'font-size: 40px');
         document.body.append(linkSecondIndex);
@@ -37,8 +36,6 @@
         if(!localStorage.getItem('formData')) throw new Error('error');
 
         const newData = JSON.parse(localStorage.getItem('formData'));
-        console.log(newData);
-
         
     })
 
