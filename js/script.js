@@ -33,9 +33,8 @@
     })
 
     document.addEventListener('DOMContentLoaded', ()=> {
-        if(!localStorage.getItem('formData')) throw new Error('error');
 
-        const newData = JSON.parse(localStorage.getItem('formData'));
+        JSON.parse(localStorage.getItem('formData'));
         
     })
 
