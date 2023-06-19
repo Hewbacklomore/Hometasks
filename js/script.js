@@ -1,34 +1,34 @@
 'use strict';
 
-let user = {
-    data: {
-        a: 1,
-        b: 2,
-        c: 3,
-        d: {
-            a1: 1,
-            b1: 2,
-            c1: 3,
-            d1: {
-                a2: 3,
-                b2: 3,
-                c2: 3,
-            }
-        },
+
+const arr = [13, 16, 65];
+
+
+function api(item) {
+    let index = 0;
+
+    const obj = {
+        value: null,
+        done: false
     }
+
+        function close() {
+            if(index < item.length) {
+              obj.value = item[index++]
+              return obj
+            }else {
+                obj.value = undefined
+                obj.done = true
+                return obj
+            }
+        }
+        return close
 }
 
-function closedObjectProperties(obj) {
+const preview = api(arr);
+console.log(preview());
+console.log(preview());
+console.log(preview());  
+console.log(preview());  
 
-    
-    const descriptor = Object.getOwnPropertyNames(obj);
 
-     for(const key in descriptor) {
-        console.log(descriptor[key]);
-    } 
-   /*  descriptor.forEach(name => {
-        console.log(obj[name]);
-    }) */
-}
-
-console.log(closedObjectProperties(user))
