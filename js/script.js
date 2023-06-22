@@ -21,6 +21,9 @@ function Student(name, surname, birth, ...studentsMark) {
 
     this.age = function() {
         const yearNow = new Date().getFullYear();
+        
+        if(typeof birth !== 'number') throw new Error('write right date of birth');
+
         const studentAge = yearNow - birth 
         return studentAge
     };
