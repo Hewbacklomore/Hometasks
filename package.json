@@ -1,0 +1,11 @@
+{
+  "name": "hometasks",
+  "version": "1.0.0",
+  "description": "Вам нужно написать функцию DeepFreeze, которая принимает объект и замораживает его и все вложенные в него объекты.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Artur Peiev",
+  "license": "ISC"
+}
