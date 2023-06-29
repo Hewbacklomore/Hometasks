@@ -1,37 +1,31 @@
 'use strict';
 
-(function () {
+ (function () {
 
-    const user = {
-        data: {
-          a: 1,
-          b: 2,
-          c: 3,
-          d: {
-            a1: 1,
-            b1: 2,
-            c1: 3,
-            d1: {
-              a2: 3,
-              b2: 3,
-              c2: 3,
-            },
-          },
-        },
-      };
-    
-      function deepFreeze(obj) {
-        const propNames = Object.getOwnPropertyNames(obj);
-    
-        propNames.forEach(function (name) {
-          let property = obj[name];
-    
-          if (typeof property === "object" && property !== null)
-            deepFreeze(property);
-        });
-        return Object.freeze(obj);
+  const goods = [['футболка', 15], ['шорты', 25], ['носки', 5]];
+
+
+      function sumOfAllPrices(arr) {
+
+        if(!Array.isArray(arr)) throw new Error('the item isn`t arr')
+
+        const myMap = new Map();
+
+      for(let [item, price] of arr) {
+        myMap.set(item, price);
       }
     
-      deepFreeze(user);
+      const newItem = myMap.values();
+      let equal = 0;
+      
+      for(let price of newItem) {
+        equal += price
+      }
 
-}())
+      return `The total price of all items ${equal}`
+
+  }
+
+      const result = sumOfAllPrices(goods);
+      console.log(result);
+}()) 
