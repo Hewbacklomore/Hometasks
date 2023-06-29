@@ -7,9 +7,9 @@
 
       function sumOfAllPrices(arr) {
 
-        if(!Array.isArray(arr)) throw new Error('the item isn`t arr')
+      if(!Array.isArray(arr)) throw new Error('the item isn`t arr')
 
-        const myMap = new Map();
+      const myMap = new Map();
 
       for(let [item, price] of arr) {
         myMap.set(item, price);
