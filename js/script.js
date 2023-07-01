@@ -2,25 +2,31 @@
 
  (function () {
 
-  const defaultString = "abracadabra";
+  const students = [ 
+    { name: 'John', age: 20, subject: 'Math' }, 
+    { name: 'Alice', age: 22, subject: 'English' }, 
+    { name: 'Bob', age: 21, subject: 'History' } 
+    ]; 
 
-  function uniqSymbolsCount(string) {
+  function printGreetings(arr) {
+    
+    let greetings = [];
+    let newGreetings;
 
-    if(typeof string !== 'string') throw new Error('typeof string isnt string')
-
-    const mySet = new Set();
-
-
-    for(let i = 0; i < string.length; i++) {
-        mySet.add(string[i])
+    for(let {name, subject} of arr) {
+      const result = `Hello, ${name}! You are study subject ${subject}`
+      greetings.push(result);
+      newGreetings = greetings.join('\n')
+      
     }
 
-    return mySet.size
+    return newGreetings
 
   }
 
+  const result = printGreetings(students);
 
-  const result = uniqSymbolsCount(defaultString);
   console.log(result);
 
 }()) 
+
