@@ -2,30 +2,25 @@
 
  (function () {
 
-  const goods = [['футболка', 15], ['шорты', 25], ['носки', 5]];
+  const defaultString = "abracadabra";
+
+  function uniqSymbolsCount(string) {
+
+    if(typeof string !== 'string') throw new Error('typeof string isnt string')
+
+    const mySet = new Set();
 
 
-      function sumOfAllPrices(arr) {
+    for(let i = 0; i < string.length; i++) {
+        mySet.add(string[i])
+    }
 
-      if(!Array.isArray(arr)) throw new Error('the item isn`t arr')
-
-      const myMap = new Map();
-
-      for(let [item, price] of arr) {
-        myMap.set(item, price);
-      }
-    
-      const newItem = myMap.values();
-      let equal = 0;
-      
-      for(let price of newItem) {
-        equal += price
-      }
-
-      return `The total price of all items ${equal}`
+    return mySet.size
 
   }
 
-      const result = sumOfAllPrices(goods);
-      console.log(result);
+
+  const result = uniqSymbolsCount(defaultString);
+  console.log(result);
+
 }()) 
