@@ -2,25 +2,23 @@
 
  (function () {
 
-  const defaultString = "abracadabra";
 
-  function uniqSymbolsCount(string) {
+  const student = { name: 'Иван Иванов' }; 
 
-    if(typeof string !== 'string') throw new Error('typeof string isnt string')
+  const grades = { math: 90, fiz: 85, eng: 95 }; 
 
-    const mySet = new Set();
+  
+  function saveGrades(person, marks) {
+    const newGrades = new WeakMap();  
 
-
-    for(let i = 0; i < string.length; i++) {
-        mySet.add(string[i])
-    }
-
-    return mySet.size
-
+    return !newGrades.has(person, marks) ?  newGrades.set(person, marks) : 'there is no nothing inside WeakMap'
+    
   }
 
+  const result = saveGrades(student, grades);
 
-  const result = uniqSymbolsCount(defaultString);
   console.log(result);
+
+    
 
 }()) 
