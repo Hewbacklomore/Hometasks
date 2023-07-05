@@ -2,23 +2,27 @@
 
  (function () {
 
+  const player1 = { id: 1, name: 'Иван', level: 10 };
+  const player2 = { id: 2, name: 'Oleg', level: 9 };
+  const player3 = { id: 3, name: 'Giorgi', level: 13 };
 
-  const student = { name: 'Иван Иванов' }; 
 
-  const grades = { math: 90, fiz: 85, eng: 95 }; 
+  function addPlayerToLevelSet(member) {
 
-  
-  function saveGrades(person, marks) {
-    const newGrades = new WeakMap();  
+    const mapMember = new WeakSet();
 
-    return !newGrades.has(person, marks) ?  newGrades.set(person, marks) : 'there is no nothing inside WeakMap'
-    
+    if(member.level >= 10) {
+        return (!mapMember.has(member))? mapMember.add(member) : 'there is no nothing in WeakSet'
+    }
+        return 'level of the members is too small to participiate in this game'
+
   }
 
-  const result = saveGrades(student, grades);
-
+  const result = addPlayerToLevelSet(player1); 
+  const result1 = addPlayerToLevelSet(player2); 
+  const result2 = addPlayerToLevelSet(player3); 
   console.log(result);
-
-    
-
+  console.log(result1);
+  console.log(result2);
+ 
 }()) 
