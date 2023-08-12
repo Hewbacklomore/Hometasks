@@ -40,6 +40,8 @@
                         btnComments.textContent = 'Comments!'
                         elem.append(btnComments)
                         document.querySelector('.container').prepend(elem)
+                    }else {
+                        console.log('cant find id');
                     }
                     mainBlockInput.style.display = 'none'
                 })
