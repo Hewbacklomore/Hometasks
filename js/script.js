@@ -1,97 +1,87 @@
 'use strict';
 
- (function () {
 
-    class Hamburger {
+
+(function () {
+    const mainBlockInput = document.querySelector('.searching');
+    const mainInput = document.querySelector('.searching__input');
+    const btn = document.querySelector('.searching__btn');
+    const btnComments = document.createElement('button');
+          btnComments.classList.add('searching__btn');
+
+    const data = fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'GET',
+        headers: {
+            accept: 'application/json, text/plain, */*'
+        }
+    })
+
+
+    data 
+        .then(response => {
+            if(!response.ok) throw new Error(`Status error: ${response.status}`)
+            const data = response.json()
+            return data
+        }).then(data => {
+            if(!Array.isArray(data)) throw new Error('array is emphty')
+
+            
+            btn.addEventListener('click', () => {
+                data.filter(item => {
+                    if(item.id == mainInput.value){
+                        console.log(item);
+                        const elem = document.createElement('div');
+                        
+                        elem.classList.add('posts')
+                        elem.innerHTML = `<div class = "posts__title">${item.title}</div>
+                                <div class = "posts__body">${item.body}</div>
+                                <div class = "posts__id">${item.id}</div>
+                                `
+                        btnComments.textContent = 'Comments!'
+                        elem.append(btnComments)
+                        document.querySelector('.container').prepend(elem)
+                    }
+                    mainBlockInput.style.display = 'none'
+                })
+            })
+           const newData = fetch('https://jsonplaceholder.typicode.com/comments', {
+                     method: 'GET',
+                     headers:  {
+                         accept: 'application/json, text/plain, */*'
+                     }
+                 })
+                 return newData
+        }).then(response => {
+            if(!response.ok) throw new Error(`Status error: ${response.status}`)
+
+            const data = response.json();
+            return data
+          
+        }).then(data => {
+            btnComments.addEventListener('click', (e)=> {
+                const previousIdElement = e.target.previousElementSibling.textContent
+                data.filter(item => {
+                    if(item.id == previousIdElement) {
+                        const elem = document.createElement('div');
+                        elem.classList.add('comments')
+                    
+                        elem.innerHTML = ` <div class = "comments__name">${item.name}</div>
+                        <div class = "comments__mail">${item.email}</div>
+                        <div class = "comments__number">${item.id}</div>
+                        `
+                        e.target.parentElement.append(elem)
+                    }
+                })
+            })
+        })
+        .catch(error => {
+            console.error(`Something went wrong ${error}`);
+        })
+
+
+        
+
+
        
 
-        constructor(size, suffering) {
-                this.size = size
-                this.suffering = suffering
-                this.objToppings = {}
-        }
-
-        static SIZE_SMALL = {
-            price: 50,
-            calories: 20
-        }
-
-        static SIZE_BIG = {
-            price: 100,
-            calories: 40
-        }
-
-        static STUFFING_CHEESE = {
-            price: 10,
-            calories: 20
-        }
-
-        static STUFFING_SALAD = {
-            price: 20,
-            calories: 5
-        }
-
-        static STUFFING_POTATO = {
-            price: 15,
-            calories: 10
-        }
-
-        static TOPPING_SAUCE = {
-            price: 15,
-            calories: 0
-        }
-
-        static TOPPING_MAYO =  {
-            price: 20,
-            calories: 5
-        } 
-
-        addTopping(item) { 
-           
-            if(Object.values(this.objToppings).length !== 0) {
-                this.objToppings = {
-                    price: this.objToppings.price + item.price,
-                    calories: this.objToppings.calories + item.calories
-                }
-                return this.objToppings
-            }
-            return this.objToppings = item
-        }
-
-        calculateCalories() {
-
-            if(typeof this.size.calories !== 'number' && typeof this.suffering.calories !== 'number' && typeof this.objToppings.calories !== 'number') throw new Error('the typeof items are not number')
-
-            const totalCalories = this.size.calories + this.suffering.calories + this.objToppings.calories
-
-            return `Calories: ${totalCalories}`
-        }
-
-        calculatePrice() {
-            if(typeof this.size.price !== 'number' && typeof this.suffering.price !== 'number' && typeof this.objToppings.price !== 'number') throw new Error('the typeof items are not number')
-
-            const totalPrice = this.size.price + this.suffering.price + this.objToppings.price
-
-            return `Price: ${totalPrice}`
-        }
-
-      }
-      
-      
-      
-const hamburger = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE); // 60 : 40
-console.log(hamburger.addTopping(Hamburger.TOPPING_MAYO)); // 80 : 45
-console.log(hamburger.calculateCalories());
-console.log(hamburger.calculatePrice());
-console.log(hamburger.addTopping(Hamburger.TOPPING_SAUCE)); // 95 : 0 = 95 : 45
-console.log(hamburger.calculateCalories());
-console.log(hamburger.calculatePrice());  
-console.log(hamburger.addTopping(Hamburger.TOPPING_SAUCE)); // 110 : 45
-console.log(hamburger.calculateCalories());
-console.log(hamburger.calculatePrice());
-console.log(hamburger.addTopping(Hamburger.TOPPING_MAYO)) // 130 : 50
-console.log(hamburger.calculateCalories());
-console.log(hamburger.calculatePrice());
-
-
-}()) 
+}())

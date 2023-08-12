@@ -1,0 +1,32 @@
+.container {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 2px 0px;
+}
+.searching {
+    width: 300px;
+    margin: 20px auto;
+}
+.posts {
+    position: relative;
+    padding: 20px;
+    width: 450px;
+    height: 295px;
+    margin: 0 auto;
+    border: 1px solid black;
+    background-color: #9191b6;;
+}
+.posts .btn {
+    margin-bottom: 10px;
+}
+.comments {
+    position: absolute;
+    right: 0px;
+    padding: 20px;
+    width: 450px;
+    margin: 0 auto;
+    border: 1px solid black;
+    background-color: #6fa246;;
+    height: 120px;
+}
