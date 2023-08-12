@@ -29,7 +29,6 @@
             btn.addEventListener('click', () => {
                 data.filter(item => {
                     if(item.id == mainInput.value){
-                        console.log(item);
                         const elem = document.createElement('div');
                         
                         elem.classList.add('posts')
