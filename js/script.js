@@ -5,7 +5,6 @@
 (function () {
     const post = 'https://jsonplaceholder.typicode.com/posts/';
     const comments = 'https://jsonplaceholder.typicode.com/comments/';
-    const btn = document.querySelector('.searching__btn');
     const mainInput = document.querySelector('.searching__input');
     const allBtn = document.querySelectorAll('button');
 
@@ -17,7 +16,6 @@
           
             const inputValue = +mainInput.value;
 
-            console.log(e.target.className);
             if(e.target.className === 'searching__btn') {
                 getElement(inputValue, post)
             }else if(e.target.className === 'comment') {
