@@ -1,16 +1,12 @@
 'use strict';
 
-
-
 (function () {
     const post = 'https://jsonplaceholder.typicode.com/posts/';
     const comments = 'https://jsonplaceholder.typicode.com/comments/';
     const mainInput = document.querySelector('.searching__input');
-    const allBtn = document.querySelectorAll('button');
+    const allBtn = document.getElementsByTagName('button');
 
-    
-
-    allBtn.forEach(btn => {
+    Array.from(allBtn).forEach(btn => {
        
         btn.addEventListener('click', (e)=> {
           
@@ -26,8 +22,6 @@
         })
     })
     
-  
-
           function getElement(id, ip) {
 
             if(id >= 0 && id <= 100) {
