@@ -3,79 +3,74 @@
 
 
 (function () {
-    const mainBlockInput = document.querySelector('.searching');
-    const mainInput = document.querySelector('.searching__input');
+    const post = 'https://jsonplaceholder.typicode.com/posts/';
+    const comments = 'https://jsonplaceholder.typicode.com/comments/';
     const btn = document.querySelector('.searching__btn');
-    const btnComments = document.createElement('button');
-          btnComments.classList.add('searching__btn');
+    const mainInput = document.querySelector('.searching__input');
+    const allBtn = document.querySelectorAll('button');
 
-    const data = fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'GET',
-        headers: {
-            accept: 'application/json, text/plain, */*'
-        }
+    
+
+    allBtn.forEach(btn => {
+       
+        btn.addEventListener('click', (e)=> {
+          
+            const inputValue = +mainInput.value;
+
+            console.log(e.target.className);
+            if(e.target.className === 'searching__btn') {
+                getElement(inputValue, post)
+            }else if(e.target.className === 'comment') {
+                getElement(inputValue, comments)
+            }else {
+                console.log('Something went wrong');
+            }
+        })
     })
+    
+  
 
+          function getElement(id, ip) {
 
-    data 
-        .then(response => {
-            if(!response.ok) throw new Error(`Status error: ${response.status}`)
-            const data = response.json()
-            return data
-        }).then(data => {
-            if(!Array.isArray(data)) throw new Error('array is emphty')
+            if(id >= 0 && id <= 100) {
+                fetch(ip + id) 
+                .then(response => {
+                    return response.json()
+                })
+                .then(data => {
+                    if(ip === post) {
 
-            
-            btn.addEventListener('click', () => {
-                data.filter(item => {
-                    if(item.id == mainInput.value){
                         const elem = document.createElement('div');
                         
                         elem.classList.add('posts')
-                        elem.innerHTML = `<div class = "posts__title">${item.title}</div>
-                                <div class = "posts__body">${item.body}</div>
-                                <div class = "posts__id">${item.id}</div>
+                        elem.innerHTML = `<div class = "posts__title">${data.title}</div>
+                                <div class = "posts__body">${data.body}</div>
+                                <div class = "posts__id">${data.id}</div>
                                 `
-                        btnComments.textContent = 'Comments!'
-                        elem.append(btnComments)
-                        document.querySelector('.container').prepend(elem)
-                    }else {
-                        console.log('cant find id');
-                    }
-                    mainBlockInput.style.display = 'none'
-                })
-            })
-           const newData = fetch('https://jsonplaceholder.typicode.com/comments', {
-                     method: 'GET',
-                     headers:  {
-                         accept: 'application/json, text/plain, */*'
-                     }
-                 })
-                 return newData
-        }).then(response => {
-            if(!response.ok) throw new Error(`Status error: ${response.status}`)
-
-            const data = response.json();
-            return data
-          
-        }).then(data => {
-            btnComments.addEventListener('click', (e)=> {
-                const previousIdElement = e.target.previousElementSibling.textContent
-                data.filter(item => {
-                    if(item.id == previousIdElement) {
+                        
+                        document.querySelector('.container').append(elem)
+                    }else if(ip === comments) {
                         const elem = document.createElement('div');
+                        
                         elem.classList.add('comments')
-                    
-                        elem.innerHTML = ` <div class = "comments__name">${item.name}</div>
-                        <div class = "comments__mail">${item.email}</div>
-                        <div class = "comments__number">${item.id}</div>
+
+                        elem.innerHTML = `<div class = "posts__title">${data.name}</div>
+                        <div class = "posts__body">${data.email}</div>
+                        <div class = "posts__id">${data.id}</div>
                         `
-                        e.target.parentElement.append(elem)
+                
+                        document.querySelector('.container').append(elem)
+                    }else {
+                        console.log('Something wrong with ip adress');
                     }
+                 
+                }).catch(error => {
+                    console.error(`Something goes wrong: ${error}`)
                 })
-            })
-        })
-        .catch(error => {
-            console.error(`Something went wrong ${error}`);
-        })
+
+            }else {
+                console.log('cant find ID');
+            }
+
+          }
 }())

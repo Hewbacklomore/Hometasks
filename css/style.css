@@ -5,7 +5,7 @@
     padding: 0px 0px 2px 0px;
 }
 .searching {
-    width: 300px;
+    width: 400px;
     margin: 20px auto;
 }
 .posts {
@@ -22,7 +22,7 @@
 }
 .comments {
     position: absolute;
-    right: 0px;
+    right: 34%;
     padding: 20px;
     width: 450px;
     margin: 0 auto;
