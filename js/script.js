@@ -61,9 +61,10 @@
                 </div>
                 ` */
                 const btn = document.createElement('button')
-                btn.classList.add('btn-success')
                 const itemNew = document.createElement('div')
+                btn.classList.add('btn-success')
                 itemNew.classList.add('col')
+
                 itemNew.append(dataAlbum[i].title)
                 item.append(itemNew)
                 btn.setAttribute('id', dataAlbum[i].id)
