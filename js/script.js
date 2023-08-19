@@ -1,68 +1,112 @@
 'use strict';
 
 (function () {
-    const post = 'https://jsonplaceholder.typicode.com/posts/';
-    const comments = 'https://jsonplaceholder.typicode.com/comments/';
-    const mainInput = document.querySelector('.searching__input');
-    const allBtn = document.getElementsByTagName('button');
 
-    Array.from(allBtn).forEach(btn => {
-       
-        btn.addEventListener('click', (e)=> {
-          
-            const inputValue = +mainInput.value;
 
-            if(e.target.className === 'searching__btn') {
-                getElement(inputValue, post)
-            }else if(e.target.className === 'comment') {
-                getElement(inputValue, comments)
-            }else {
-                console.log('Something went wrong');
+    class Gallery {
+        
+
+        constructor(url, btn) {
+            this.url = url
+           
+
+            this.init()
+
+        }
+
+        async requestToServer(ip) {
+
+            try{
+            const data = await fetch(ip);
+            const response = await data.json()
+            
+            return response
+            }catch(error) {
+                console.log('error');
+            }finally {
+                console.log('It`s OK!');
             }
-        })
-    })
-    
-          function getElement(id, ip) {
+        }
 
-            if(id >= 0 && id <= 100) {
-                fetch(ip + id) 
-                .then(response => {
-                    return response.json()
-                })
-                .then(data => {
-                    if(ip === post) {
+       async createAlbum() {
+            
+            const urlDomen = `${this.url}albums`
+            const data = await this.requestToServer(urlDomen)
 
-                        const elem = document.createElement('div');
-                        
-                        elem.classList.add('posts')
-                        elem.innerHTML = `<div class = "posts__title">${data.title}</div>
-                                <div class = "posts__body">${data.body}</div>
-                                <div class = "posts__id">${data.id}</div>
-                                `
-                        
-                        document.querySelector('.container').append(elem)
-                    }else if(ip === comments) {
-                        const elem = document.createElement('div');
-                        
-                        elem.classList.add('comments')
+            const elem = document.createElement('div')
+            elem.classList.add('albums__item');
+            
+            
+   
+            this.templateForAlbum(elem, data)
+           
+            document.querySelector('.albums').append(elem)
+            
+        }
 
-                        elem.innerHTML = `<div class = "posts__title">${data.name}</div>
-                        <div class = "posts__body">${data.email}</div>
-                        <div class = "posts__id">${data.id}</div>
-                        `
-                
-                        document.querySelector('.container').append(elem)
-                    }else {
-                        console.log('Something wrong with ip adress');
-                    }
-                 
-                }).catch(error => {
-                    console.error(`Something goes wrong: ${error}`)
-                })
+        templateForAlbum(item, dataAlbum) {
+            
+            if(!Array.isArray(dataAlbum)) return []
+            if(!item && !list) throw new Error('Thete are no items')
 
-            }else {
-                console.log('cant find ID');
+           /*  dataAlbum.forEach(elem => {
+                item.innerHTML += `<div class="col">${elem.title}
+                <button id = "${elem.id}" class = "albums__btn">Tap Here</button>
+                </div>
+                `
+            }) */
+            for(let i = 0; i < dataAlbum.length; i++) {
+                /* item.innerHTML += `<div class="col">${dataAlbum[i].title}
+                <button id = "${dataAlbum[i].id}" class = "albums__btn">Tap Here</button>
+                </div>
+                ` */
+                const btn = document.createElement('button')
+                btn.classList.add('btn-success')
+                const itemNew = document.createElement('div')
+                itemNew.classList.add('col')
+                itemNew.append(dataAlbum[i].title)
+                item.append(itemNew)
+                btn.setAttribute('id', dataAlbum[i].id)
+                itemNew.append(btn)
+                this.eventListeners(btn)
             }
+            
+            
+        }
 
-          }
+        createPhotos() {
+
+            
+            
+
+        }
+
+        templateForPhotos() {
+
+            const elem = document.createElement('div')
+            elem.classList.add('photos')
+        }
+
+      
+
+        eventListeners(btn) {
+            if(!btn) throw new Error('there is no button')
+            btn.textContent = 'Tap Here'
+
+            
+           /*  btn.addEventListener('click', ()=> {
+                console.log('hello');
+            }) */
+        } 
+
+        init() {
+            document.addEventListener('DOMContentLoaded', ()=> {
+                this.createAlbum()
+             
+            })
+        }
+        
+    }
+
+    const myApp = new Gallery('https://jsonplaceholder.typicode.com/')
 }())
